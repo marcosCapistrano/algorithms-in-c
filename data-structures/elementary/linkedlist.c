@@ -23,7 +23,7 @@ Node *List_insert(Node *node, int key)
     return newNode;
 }
 
-void *List_delete(Node *head, Node *node)
+int *List_delete(Node *head, Node *node)
 {
     Node *temp = head;
     while(temp->next != node)
@@ -32,7 +32,11 @@ void *List_delete(Node *head, Node *node)
     }
 
     temp->next = node->next;
+
+    int key = node->key;
     free(node);
+
+    return key;
 }
 
 int main()
